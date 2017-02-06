@@ -6,6 +6,8 @@ Wanted to bundle this and a web server into npm start but did not have time. I w
 
 Install/Run Commands
 
+$ git clone https://github.com/ConnerAiken/Angular-Weather-App
+
 $ npm install 
 
 $ npm install http-server -g
