@@ -1,0 +1,30 @@
+{
+  "name": "angular-weather-app",
+  "version": "1.0.0",
+  "description": "A simple weather app using angular1 and dark sky",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ConnerAiken/Weather-App-PHP-Angular/tree/node-api"
+  },
+  "keywords": [
+    "node",
+    "angular1",
+    "weather",
+    "app"
+  ],
+  "author": "Conner Aiken",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-animate": "^1.6.1",
+    "angular-cookies": "^1.6.1",
+    "angular-ui-router": "^0.4.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.1",
+    "https": "^1.0.0"
+  }
+}

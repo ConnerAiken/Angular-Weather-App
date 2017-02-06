@@ -1,0 +1,29 @@
+<div data-ng-if="!itemsLoading" data-ng-repeat="day in forecastData.daily.data | limitTo:5"  data-ng-class="$index == 0 ? 'col-md-offset-1': ''" class="col-xs-12 col-md-2 animated fadeIn animation-delay-{{$index}}">
+  <div class="panel panel-default">
+    <div class="panel-heading text-center">
+      {{day.time*1000 | date: 'EEEE'}}
+    </div>
+    <div class="panel-body weather-panel-body">
+     <div class="weather-image-box">
+      <figure>
+       <img src="/assets/img/icons/{{day.icon}}.png" alt="sun">
+       <figcaption><br>
+         <div class="row">
+           <div class='col-md-7 col-xs-12'>
+           <p>Sunrise: {{day.sunriseTime * 1000 | date:'shortTime'}}<br>Sunset: {{day.sunsetTime * 1000 | date:'shortTime'}}</p>
+           </div>
+           <div class='col-md-5 col-xs-12'>
+           <p>Low: <b>{{day.temperatureMin | number:0}}F</b><br>High: <b>{{day.temperatureMax | number:0}}F</b></p>
+           </div>
+         </div>
+       </figcaption>
+     </figure>
+     </div>
+     <hr>
+     <div class="information-box">
+       <div>
+         <p>{{day.summary}}</p>
+       </div>
+     </div>
+  </div>
+</div>

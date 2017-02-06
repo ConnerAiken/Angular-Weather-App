@@ -1,0 +1,78 @@
+<button ng-click="goBack()" id="back-btn" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button>
+
+<div class="row">
+     <div class="col-xs-12">
+       <h1 class="text-white text-center animated fadeIn animation-delay-0-2">Weather Report<br><small>({{zipCode}})</small></h1>
+     </div>
+</div>
+
+<section ng-if="!items.loading">
+  <div class="row" id="forecast-row">
+      <weather-days></weather-days>
+  </div>
+  <div class="row" id="today-row">
+    <div class="col-md-7 col-md-offset-1 col-xs-12 animated fadeIn animation-delay-4">
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+            Today's Weather
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-8 col-xs-12">
+                <h2>{{forecastData.currently.summary}}</h2>
+                <h4><b>{{forecastData.minutely.summary}}</b></h4>
+                <p>It is currently {{forecastData.currently.temperature | number:1}}F but it feels like it is {{forecastData.currently.apparentTemperature | number:1}}F.</p>
+                <p>There is a humidity level of {{forecastData.currently.humidity * 100}}%
+                <p>The precipitation probability is: {{forecastData.currently.precipProbability * 100}}% with an intensity of {{forecastData.currently.precipIntensity * 100 | number: 1}}%.</p>
+              </div>
+              <div class="col-md-4 col-xs-12">
+                <img src="/assets/img/icons/{{forecastData.currently.icon}}.png" class="img img-thumbnail pull-right">
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-12  animated fadeIn animation-delay-4">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+              Next 12 Hours
+            </div>
+            <div class="panel-body">
+              <table class="table table-hover table-bordered table-condensed text-center">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Temperature</th>
+                    <th>Condition</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-ng-repeat="hour in forecastData.hourly.data | limitTo:12">
+                    <td>{{hour.time * 1000| date: 'shortTime'}}</td>
+                    <td>{{hour.temperature | number: 1}}F</td>
+                    <td>{{hour.summary}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="row" id="alert-row" data-ng-if="forecastData.alerts">
+    <!-- Only showing the 1st alert for v1.0 -->
+    <div class="alert alert-danger">
+      <strong>Weather Alert!</strong><p style='text-transform:lowercase;'>{{forecastData.alerts[0].description}}</p>
+    </div>
+  </div>
+</section>
+
+<div class="row" id="forecast-row" ng-if="itemsLoading">
+  <div class="spinner">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+  </div>
+</div>

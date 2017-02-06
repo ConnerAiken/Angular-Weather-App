@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>WeatherApp</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/bower_components/animate.css/animate.min.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<head>
+<body data-ng-app="weatherApp">
+
+  <div class="container-fluid" id="view-container">
+
+    <ui-view></ui-view>
+
+    <a href="https://darksky.net/poweredby/" target="_BLANK" id="api-attribute">Powered by Dark Sky</a>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="app/services/WeatherService.js"></script>
+  <script src="app/components/weatherDays.js"></script>
+  <script src="app/controllers/forecastCtrl.js"></script>
+  <script src="app/controllers/homeCtrl.js"></script>
+  <script src="assets/js/loader.js"></script>
+</body>
+</html>
