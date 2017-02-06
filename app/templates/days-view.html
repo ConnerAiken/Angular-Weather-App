@@ -1,4 +1,4 @@
-<div data-ng-if="!itemsLoading" data-ng-repeat="day in forecastData.daily.data | limitTo:5"  data-ng-class="$index == 0 ? 'col-md-offset-1': ''" class="col-xs-12 col-md-2 animated fadeIn animation-delay-{{$index}}">
+<div data-ng-if="!itemsLoading" data-ng-repeat="day in vm.forecast.daily.data | limitTo:5"  data-ng-class="$index == 0 ? 'col-md-offset-1': ''" class="col-xs-12 col-md-2 animated fadeIn animation-delay-{{$index}}">
   <div class="panel panel-default">
     <div class="panel-heading text-center">
       {{day.time*1000 | date: 'EEEE'}}

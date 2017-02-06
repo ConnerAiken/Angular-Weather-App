@@ -21,7 +21,7 @@ html,body {
   border-radius: 50%;
 }
 #view-container {
-  padding-top: 5%;
+  padding-top: 1%;
 }
 .weather-panel-body {
   min-height: 400px;

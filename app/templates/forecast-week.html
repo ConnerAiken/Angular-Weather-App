@@ -1,14 +1,14 @@
-<button ng-click="goBack()" id="back-btn" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button>
+<button ng-click="vm.goBack()" id="back-btn" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button>
 
 <div class="row">
      <div class="col-xs-12">
-       <h1 class="text-white text-center animated fadeIn animation-delay-0-2">Weather Report<br><small>({{zipCode}})</small></h1>
+       <h1 class="text-white text-center animated fadeIn animation-delay-0-2">Weather Report<br><small>({{vm.zipCode}})</small></h1>
      </div>
 </div>
 
-<section ng-if="!items.loading">
+<section ng-if="!vm.itemsloading">
   <div class="row" id="forecast-row">
-      <weather-days></weather-days>
+      <weather-days forecast="vm.forecastData"></weather-days>
   </div>
   <div class="row" id="today-row">
     <div class="col-md-7 col-md-offset-1 col-xs-12 animated fadeIn animation-delay-4">
@@ -19,14 +19,14 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-md-8 col-xs-12">
-                <h2>{{forecastData.currently.summary}}</h2>
-                <h4><b>{{forecastData.minutely.summary}}</b></h4>
-                <p>It is currently {{forecastData.currently.temperature | number:1}}F but it feels like it is {{forecastData.currently.apparentTemperature | number:1}}F.</p>
-                <p>There is a humidity level of {{forecastData.currently.humidity * 100}}%
-                <p>The precipitation probability is: {{forecastData.currently.precipProbability * 100}}% with an intensity of {{forecastData.currently.precipIntensity * 100 | number: 1}}%.</p>
+                <h2>{{vm.forecastData.currently.summary}}</h2>
+                <h4><b>{{vm.forecastData.minutely.summary}}</b></h4>
+                <p>It is currently {{vm.forecastData.currently.temperature | number:1}}F but it feels like it is {{vm.forecastData.currently.apparentTemperature | number:1}}F.</p>
+                <p>There is a humidity level of {{vm.forecastData.currently.humidity * 100}}%
+                <p>The precipitation probability is: {{vm.forecastData.currently.precipProbability * 100}}% with an intensity of {{vm.forecastData.currently.precipIntensity * 100 | number: 1}}%.</p>
               </div>
               <div class="col-md-4 col-xs-12">
-                <img src="/assets/img/icons/{{forecastData.currently.icon}}.png" class="img img-thumbnail pull-right">
+                <img src="/assets/img/icons/{{vm.forecastData.currently.icon}}.png" class="img img-thumbnail pull-right">
               </div>
             </div>
           </div>
@@ -47,7 +47,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr data-ng-repeat="hour in forecastData.hourly.data | limitTo:12">
+                  <tr data-ng-repeat="hour in vm.forecastData.hourly.data | limitTo:12">
                     <td>{{hour.time * 1000| date: 'shortTime'}}</td>
                     <td>{{hour.temperature | number: 1}}F</td>
                     <td>{{hour.summary}}</td>
@@ -59,15 +59,15 @@
     </div>
   </div>
 
-  <div class="row" id="alert-row" data-ng-if="forecastData.alerts">
+  <div class="row" id="alert-row" data-ng-if="vm.forecastData.alerts">
     <!-- Only showing the 1st alert for v1.0 -->
     <div class="alert alert-danger">
-      <strong>Weather Alert!</strong><p style='text-transform:lowercase;'>{{forecastData.alerts[0].description}}</p>
+      <strong>Weather Alert!</strong><p style='text-transform:lowercase;'>{{vm.forecastData.alerts[0].description}}</p>
     </div>
   </div>
 </section>
 
-<div class="row" id="forecast-row" ng-if="itemsLoading">
+<div class="row" id="forecast-row" ng-if="vm.itemsLoading">
   <div class="spinner">
     <div class="rect1"></div>
     <div class="rect2"></div>

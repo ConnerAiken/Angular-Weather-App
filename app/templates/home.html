@@ -7,17 +7,17 @@
       </div>
       <div class="panel-body">
         <div class="row">
-        <form data-ng-submit="submitRequest()">
+        <form data-ng-submit="vm.submitRequest()">
           <div class="col-xs-12">
             <div class="input-group">
               <span class="input-group-addon" id="zip">Zip</span>
-              <input id="zip-entry" type="text" required data-ng-model="zipCode" data-ng-minlength="5" class="form-control" placeholder="" aria-describedby="zip">
+              <input id="zip-entry" type="text" required data-ng-model="vm.zipCode" data-ng-minlength="5" class="form-control" placeholder="" aria-describedby="zip">
               </div>
           </div>
         </div>
       </div>
       <div class="panel-footer">
-          <button class="btn btn-success btn-block hvr-glow" data-ng-click="submitRequest()" type="submit"><i class="fa fa-mail-forward"></i></button>
+          <button class="btn btn-success btn-block hvr-glow" data-ng-click="vm.submitRequest()" type="submit"><i class="fa fa-mail-forward"></i></button>
       </div>
     </form>
     </div>
