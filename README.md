@@ -14,5 +14,7 @@ $ npm install http-server -g
 
 $ npm start
 
+Then open another cmd/terminal window, navigate to the project folder then...
+
 $ http-server -a localhost -p 8000
  
