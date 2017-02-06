@@ -1,10 +1,10 @@
 app.controller('forecastCtrl', ['$scope', 'WeatherService', '$state', '$stateParams', function($scope, WeatherService, $state, $stateParams) {
     $scope.itemsLoading = true;
-    $scope.zipCode = $stateParams.zip; // starting to repeat, move to root scope?
-    $scope.date = $stateParams.date;
-    $scope.chartData = [];
-    $scope.labels = [];
-    $scope.series = ['Temp'];
+    $scope.zipCode = $stateParams.zip;  
+	if(!$stateParams.zip) {
+		alert("You must enter a zip code.");
+		return;
+	}
 
     WeatherService.getForecast($scope.zipCode).then(function(response) {
       $scope.forecastData = response.data;
